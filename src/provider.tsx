@@ -207,7 +207,11 @@ const KeepAliveProvider = (props: KeepAliveProviderProps) => {
     <Fragment>
       { (!isKeptAlive || !isEnabled()) && children }
 
-      <div style={{ display: (isKeptAlive && isEnabled()) ? 'block' : 'none' }}
+      <div style={{ 
+          display: (isKeptAlive && isEnabled()) ? 'block' : 'none',
+          width: '100%',
+          height: '100%',
+        }}
            id="keep-alive-container"
            data-keepalivecontainer={true}
       >
@@ -215,7 +219,10 @@ const KeepAliveProvider = (props: KeepAliveProviderProps) => {
           Object.entries(keepAliveCache.current).map(([cacheName, { Component, pageProps: cachedProps }]: any) => (
             <div
               key={cacheName}
-              style={{ display: name === cacheName ? 'block' : 'none' }}
+              style={{ display: name === cacheName ? 'block' : 'none',
+              width: '100%',
+              height: '100%',
+            }}
               data-keepalive={cacheName}
               data-keepalive-hidden={name !== cacheName}
             >
